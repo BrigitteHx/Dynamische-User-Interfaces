@@ -19,26 +19,26 @@
 // for (nummer = 1; nummer < gekozenNummer; i++){
 //     document.write(currentNummer + "<br>")
 // }
+
 // --------------------------------------------------------------------------------------------
 
-inputNummer = Number(prompt("Voor welk getal wilt u een ruit zien?"))
+// inputNummer = Number(prompt("Voor welk getal wilt u een ruit zien?"))
 
-const nummerLijst = [] // const = constante waarde, kan niet veranderen
-oud = ""
+// const nummerLijst = [] // const = constante waarde, kan niet veranderen
+// oud = ""
 
-for (x = 0; x <inputNummer; x++){
-    nummer = x + 1 + "-";
-    nieuwNummer = oud.slice(0, -3)
-    // array slicing is a way to get a subarray of the given array.
-    nummerLijst[x] = nieuwNummer
-    document.write(nieuwNummer + "<br>")
-}
+// for (x = 0; x <  inputNummer; x++){
+//     nummer = x + 1 + "-";
+//     nieuwNummer = oud.slice(0, -3)
+//     // array slicing is a way to get a subarray of the given array.
+//     nummerLijst[x] = nieuwNummer
+//     document.write(nieuwNummer + "<br>")
+// }
 
-nummerLijst.reverse()  // reverses an array in any place
-for (x = 1; x < inputNummer; x++){
-    document.write(nieuwNummer + "<br>")
-}
-
+// nummerLijst.reverse()  // reverses an array in any place
+// for (x = 1; x < inputNummer; x++){
+//     document.write(nieuwNummer + "<br>")
+// }
 
 // --------------------------------------------------------------------------------------------
 
@@ -53,3 +53,13 @@ for (x = 1; x < inputNummer; x++){
 //   }
   
 //   diamond(gewenste_aantal_ruit);
+
+// --------------------------------------------------------------------------------------------
+
+// let amount  = 5;
+
+// for (let line =1; line <= amount; line++){
+//     let element = document.createElement("p");
+//     body = document.getElementById("body")
+
+// }
