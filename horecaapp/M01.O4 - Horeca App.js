@@ -1,4 +1,4 @@
-// M01.O4 - Horeca App
+0// M01.O4 - Horeca App
 
 // var bier = 0;
 // var wijn = 0;
@@ -68,47 +68,51 @@
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------
 
+var bestelling = true 
+var hoeveel = 0 
 
-var bestelling = true
 var drankMenu = {
     "bier" : {naam: "bier", prijs : 5, hoeveel: 0},
     "wijn" : {naam: "wijn", prijs : 6, hoeveel: 0},
     "fris" : {naam: "fris", prijs : 3, hoeveel: 0},
 }
 
-function bestellen(){
-    while (bestelling){
-        inputDrank = prompt("Wat wilt u bestellen van het drank menu? ");
+while (bestelling){
+    inputDrank = prompt("Wat wilt u bestellen van het drank menu? ");
 
-        if (inputDrank in drankMenu){
-            inputHoeveel = parseInt(prompt("Hoeveel van uw gekozen drank wilt u?"));
-            hoeveel += drankMenu[inputDrank].inputHoeveel;
-            // voegt toe aan hoeveel in drank menu 
-        }
-        else if (inputDrank == "stop"){
-            var bestelling = false;
-        }
+    if (inputDrank in drankMenu){
+        inputHoeveel = parseInt(prompt("Hoeveel van uw gekozen drank wilt u?"));
+        // hoeveel += drankMenu[inputDrank].inputHoeveel;
+        drankMenu[inputDrank].inputHoeveel += hoeveel;
+        // voegt toe aan hoeveel in drank menu 
+    }
+    else if (inputDrank == "stop"){
+        var bestelling = false;
+    }
         // else if (!(inputDrank in drankMenu)){
-        else {
-            console.log("Dit ken ik niet, kies AUB tussen bier wijn of fris.");
-            var bestelling = true;
-        }
+    else {
+        console.log("Dit ken ik niet, kies AUB tussen bier wijn of fris.");
+        // var bestelling = true;
     }
 }
 
-bestellen(); 
+// var totaalPrijsBier = (drankMenu.bier.prijs * drankMenu.bier.hoeveel);
+// // console.log(totaalPrijsBier);
+// var totaalPrijsWijn = (drankMenu.wijn.prijs * drankMenu.wijn.hoeveel);
+// var totaalPrijsFris = (drankMenu.fris.prijs * drankMenu.fris.hoeveel);
 
-totaalPrijsBier = (drankMenu.bier.prijs * drankMenu.bier.hoeveel);
-console.log(totaalPrijsBier);
-totaalPrijsWijn = drankMenu.wijn.prijs * drankMenu.wijn.hoeveel;
-totaalPrijsFris = drankMenu.fris.prijs * drankMenu.fris.hoeveel;
+// var totaalPrijs = (totaalPrijsBier + totaalPrijsWijn + totaalPrijsFris);
 
-totaalPrijs = totaalPrijsBier + totaalPrijsWijn + totaalPrijsFris;
+// console.log("U heeft ",drankMenu.bier.naam," voor ", totaalPrijsBier );
+// console.log("U heeft ",drankMenu.wijn.naam," voor ", totaalPrijsWijn );
+// console.log("U heeft ",drankMenu.fris.naam," voor ", totaalPrijsFris );
+// console.log("De totaal prijs is ", totaalPrijs.toFixed(2));
 
-console.log("U heeft ",drankMenu.bier.hoeveel," voor ", totaalPrijsBier );
-console.log("U heeft ",drankMenu.wijn.hoeveel," voor ", totaalPrijsWijn );
-console.log("U heeft ",drankMenu.fris.hoeveel," voor ", totaalPrijsFris );
+var totaalPrijs = (drankMenu.bier.prijs * drankMenu.bier.hoeveel + drankMenu.wijn.prijs * drankMenu.wijn.hoeveel + drankMenu.fris.prijs * drankMenu.fris.hoeveel);
+console.log("U heeft ",drankMenu.bier.naam," voor ", (drankMenu.bier.prijs * drankMenu.bier.hoeveel) );
+console.log("U heeft ",drankMenu.wijn.naam," voor ", (drankMenu.wijn.prijs * drankMenu.wijn.hoeveel) );
+console.log("U heeft ",drankMenu.fris.naam," voor ", (drankMenu.fris.prijs * drankMenu.fris.hoeveel) );
 console.log("De totaal prijs is ", totaalPrijs.toFixed(2));
 
-// The .toFixed(2) method is used to round the result to two decimal places and store it in the variable 
 
+// ----------------------------------------------------------------------------------------------------------------------------------------------
