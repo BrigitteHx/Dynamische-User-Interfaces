@@ -124,23 +124,31 @@ var drankMenu = {
     "fris": { naam: "fris", prijs: 3, hoeveel: 0 }
 };
 
-while (bestelling) {
-    var inputDrank = prompt("Wat wilt u bestellen van het drank menu?");
+function bestellenDrank(){
+    while (bestelling) {
+        var inputDrank = prompt("Wat wilt u bestellen van het drank menu?");
 
-    if (inputDrank in drankMenu) {
-        var inputHoeveel = parseInt(prompt("Hoeveel van uw gekozen drank wilt u?"));
-        drankMenu[inputDrank].hoeveel += inputHoeveel;
-        // inputHoeveel += drankMenu[inputDrank].hoeveel;
-    } else if (inputDrank == "stop") {
-        bestelling = false;
-    } else {
-        console.log("Dit ken ik niet, kies AUB tussen bier, wijn of fris.");
+        if (inputDrank in drankMenu) {
+            var inputHoeveel = parseInt(prompt("Hoeveel van uw gekozen drank wilt u?"));
+            drankMenu[inputDrank].hoeveel += inputHoeveel;
+            // inputHoeveel += drankMenu[inputDrank].hoeveel;
+        } else if (inputDrank == "stop") {
+            bestelling = false;
+        } else {
+            console.log("Dit ken ik niet, kies AUB tussen bier, wijn of fris.");
+        }
     }
 }
 
-var totaalPrijs = 0;
-for (var key in drankMenu) {
-    console.log("U heeft " + drankMenu[key].hoeveel, drankMenu[key].naam + " voor " + (drankMenu[key].prijs * drankMenu[key].hoeveel) + " euro.");
-    totaalPrijs += drankMenu[key].prijs * drankMenu[key].hoeveel;
+bestellenDrank(bestelling, drankMenu)
+
+function printenBonnetje(){
+    var totaalPrijs = 0;
+    for (var key in drankMenu) {
+        console.log("U heeft " + drankMenu[key].hoeveel, drankMenu[key].naam + " voor " + (drankMenu[key].prijs * drankMenu[key].hoeveel) + " euro.");
+        totaalPrijs += drankMenu[key].prijs * drankMenu[key].hoeveel;
+    }
+    console.log("De totaal prijs is " + totaalPrijs.toFixed(2));
 }
-console.log("De totaal prijs is " + totaalPrijs.toFixed(2));
+
+printenBonnetje(drankMenu)
