@@ -117,14 +117,14 @@
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------
 
-var bestelling = true;
 var drankMenu = {
     "bier": { naam: "bier", prijs: 5, hoeveel: 0 },
     "wijn": { naam: "wijn", prijs: 6, hoeveel: 0 },
     "fris": { naam: "fris", prijs: 3, hoeveel: 0 }
 };
 
-function bestellenDrank(){
+function bestellenDrank(drankMenu){
+    var bestelling = true;
     while (bestelling) {
         var inputDrank = prompt("Wat wilt u bestellen van het drank menu?");
 
@@ -138,17 +138,19 @@ function bestellenDrank(){
             console.log("Dit ken ik niet, kies AUB tussen bier, wijn of fris.");
         }
     }
+    return drankMenu;
 }
 
-bestellenDrank(bestelling, drankMenu)
+drankMenu = bestellenDrank(drankMenu);
 
-function printenBonnetje(){
+function printenBonnetje(drankMenu){
     var totaalPrijs = 0;
     for (var key in drankMenu) {
         console.log("U heeft " + drankMenu[key].hoeveel, drankMenu[key].naam + " voor " + (drankMenu[key].prijs * drankMenu[key].hoeveel) + " euro.");
         totaalPrijs += drankMenu[key].prijs * drankMenu[key].hoeveel;
     }
     console.log("De totaal prijs is " + totaalPrijs.toFixed(2));
+    return drankMenu;
 }
 
-printenBonnetje(drankMenu)
+drankMenu = printenBonnetje(drankMenu)
